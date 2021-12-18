@@ -1,17 +1,11 @@
 class Solution:
     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
-        kidsCandySum = []
+        highest = max(candies)
         output = []
-        greatest = 0
-        for x in candies:
-            kidsCandySum.append(x + extraCandies)
-            if x > greatest:
-                greatest = x
-        for y in kidsCandySum:
-            if y >= greatest:
+        for element in candies:
+            if element + extraCandies >= highest:
                 output.append(True)
-            if y < greatest:
+            else:
                 output.append(False)
-                
         return output
             
